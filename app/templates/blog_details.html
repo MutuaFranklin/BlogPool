@@ -1,0 +1,52 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% import 'macros.html' as macro %}
+
+
+<!-- Styles block -->   
+{% block styles%}
+  {{ super() }}
+  <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+{% endblock %}
+
+{% block content %}
+
+  <div class="container-fluid blog-details">
+
+    <div class="row">
+
+      <div class="col-md-8">
+          <h2>blogs</h2>
+          <div class="jumbotron">
+            <div class="container">
+              <div class="topheader">
+                <h3>{{single_blog.blog_title}}</h3>
+              </div> 
+              <hr>
+  
+              <div class="content">
+                <p>{{single_blog.blog_content}}</p>
+
+              </div>
+                
+                <hr>
+              <div class="row user-details">
+                <div class="username">Posted by {{single_blog.user.username}} on: {{ single_blog.datetime_posted.strftime('%Y-%m-%d %H:%M')}}</div>
+              </div>
+              
+              </div> 
+              
+            </div>
+          </div>
+
+      </div>
+
+
+
+
+    </div>
+  </div>
+  {% endblock %}
+
+
+  

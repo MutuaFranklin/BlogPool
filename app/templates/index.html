@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+
+<!-- Styles block -->   
+{% block styles%}
+  {{ super() }}
+  <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
+<div class="container-fluid">
+    <h2 style="color: black;">it works</h2>
+</div>

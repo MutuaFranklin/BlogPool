@@ -1,0 +1,52 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% import 'macros.html' as macro %}
+
+
+<!-- Styles block -->   
+{% block styles%}
+  {{ super() }}
+  <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid profile">
+
+  <div class="row">
+
+    <div class="col-md-3 profile-details">
+      <div class="prof-image">
+        <h4>Profile</h4>
+
+        {% if user.profile_pic_path %}
+    
+        <img src="{{url_for('static',filename=user.profile_pic_path)}}"style="border-radius: 5%; height:30rem; width: 30rem;" alt="" class="img-thumbnail">
+    
+        {%else%}
+        <img src="{{url_for('static',filename='images/avartar.jpeg')}}" style="border-radius: 5%; height:100%; width: 100%;"alt="" class="img-thumbnail">  
+        {% endif %}
+      </div>
+      <div class="user-profile">
+        <h3> {{user.username| capitalize}} </h3>
+
+        {% if user.bio %}
+          <p> {{user.bio}}</p>
+
+        {%else%}
+          <p> {{user.username| capitalize}} has no bio </p>
+        {% endif %}
+
+       
+
+      </div>
+      
+
+     
+      
+    </div>
+    
+  </div>
+</div>
+{% endblock %}

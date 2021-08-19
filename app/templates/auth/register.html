@@ -13,8 +13,74 @@
     <div class="col-md-6">
         <div class="form">
             
-          {{wtf.quick_form(registration_form)}}
-</div>
+          <div class="container">
+            <div class="header">
+                <div class="d-flex justify-content-space-between align-items-center">
+                    <div>
+                        <!-- <img class="sign-up-image" src="../static/images/access_account.svg" alt="access_account image"> -->
+                    </div>
+                    <div class="signup-card px-4 py-2">
+                        <h4 class="fw-light text--center mb-4">Blog<span class="text--primary">pool</span></h4>
+                        <p class="fw-light">Fill in the fields to create an account</p>
+                        <form class="d-flex flex-column justify-content-center align-items-center" action="/auth/register" method="post">
+                            {{registration_form.hidden_tag()}}
+                            <div class="mb-2">
+                                <div class="fw-bold text-capitalize mb-2">
+                                    {{registration_form.first_name.label}}
+                                </div>
+                                <div>
+                                    {{registration_form.first_name(size=30, class_="form-control" )}}
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <div class="fw-bold text-capitalize mb-2">
+                                    {{registration_form.last_name.label}}
+                                </div>
+                                <div>
+                                    {{registration_form.last_name(size=30, class_="form-control" )}}
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <div class="fw-bold text-capitalize mb-2">
+                                    {{registration_form.username.label}}
+                                </div>
+                                <div>
+                                    {{registration_form.username(size=30, class_="form-control" )}}
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <div class="fw-bold text-capitalize mb-2">
+                                    {{registration_form.email.label}}
+                                </div>
+                                <div>
+                                    {{registration_form.email(size=30, class_="form-control" )}}
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <div class="fw-bold text-capitalize mb-2">
+                                    {{registration_form.password.label}}
+                                </div> 
+                                <div>
+                                    {{registration_form.password(size=30, class_="form-control")}}
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                              <div class="fw-bold text-capitalize mb-2">
+                                  {{registration_form.password_confirm.label}}
+                              </div> 
+                              <div>
+                                  {{registration_form.password_confirm(size=30, class_="form-control")}}
+                              </div>
+                          </div>
+                          <div class="mt-2">
+                            <input class="signup-ghost-button" type="submit" value="Create an account">
+                          </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
 
 </div>
 </div>

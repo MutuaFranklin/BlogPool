@@ -4,6 +4,8 @@ from flask_login import login_required, current_user
 from ..models import User, Blog, Comment
 from .. import db,photos
 from .forms import UpdateProfile, BlogForm, CommentForm
+import markdown2 
+
 
 
 
@@ -29,9 +31,13 @@ def home():
 
         return redirect (url_for ("main.home"))
    
-    blogs = Blog.query.all()    
+    blogs = Blog.query.all() 
+    # if blogs is None:
+    #     abort(404)
+    # format_blog = markdown2.markdown(blogs.blog_content,extras=["code-friendly", "fenced-code-blocks"])
+   
     title = 'BlogPool Home'
-    return render_template('home.html', title = title, blog_form = blog_form, blogs=blogs)
+    return render_template('home.html', title = title, blogs=blogs, blog_form=blog_form)
 
 
 @main.route('/blog/blog-details/<int:id>',methods=['GET','POST'])

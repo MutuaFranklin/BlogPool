@@ -40,6 +40,37 @@
           </div>
 
       </div>
+      <div class="col-md-12 commentForm">
+        <div class="col-md-8">
+          <!-- <form action="/main.blog_details" method="post">
+            {{commentForm.hidden_tag()}}
+
+            <div>
+                <div class="fw-bold text-capitalize mb-2">
+                    {{ commentForm.blog_comment.label }}
+                </div>
+                <div>
+                  {{commentForm.blog_comment(cols="30", rows="5", class_="form-control" )}}
+              </div>
+                
+            </div>
+            
+            <div class="mt-2">
+              <input class="ghost-button" type="submit" value="Post">
+            </div>
+          </form>              -->
+          {{wtf.quick_form(commentForm)}}
+
+        </div>
+      </div>
+
+      <div class="col-md-12 comments">
+        <hr>
+        <button type="button" class="btn btn-primary">{{single_blog.blog_comments.count() }} Comment(s)</button>
+        <hr>
+        {{macro.displayBlogComments(comments)}}
+      </div>
+    </div>
 
 
 

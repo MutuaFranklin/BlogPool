@@ -12,23 +12,9 @@
 {% block content %}
 
   <div class="container-fluid home">
+    <a href="{{url_for('main.blog_submission')}}"><button type="button" class="btn btn-secondary mt-5">Click here to write and post your blog</button></a>
 
     <div class="row">
-
-      <div class="col-md-3">
-        <h4>Blog submission </h4>
-        <div class="container-fluid">
-          <div class="col-md-12">
-              {{wtf.quick_form(blog_form)}}
-              
-              
-              <!-- {{simplemde.load}} -->
-
-
-          </div>
-        </div>
-      </div>
-
       <div class="col-md-8">
         {{macro.displayBlogs(blogs)}}
       </div>

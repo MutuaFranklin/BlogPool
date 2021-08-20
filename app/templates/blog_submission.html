@@ -1,0 +1,94 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% import 'macros.html' as macro %}
+
+
+<!-- Styles block -->   
+{% block styles%}
+  {{ super() }}
+  <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+{% endblock %}
+
+{% block content %}
+
+  <div class="container-fluid home">
+    <div class="row">
+      <div class="col-md-7">
+        <h4>Blog submission </h4>
+        <div class="container-fluid">
+          <div class="col-md-12 mt-4 px-4">
+              <!-- {{wtf.quick_form(blog_form)}} -->
+                <form action="/blog-submission" method="post">
+                    {{blog_form.hidden_tag()}}
+
+                    <div>
+                        <div class="fw-bold text-capitalize mb-2">
+                            {{ blog_form.title.label }}
+                        </div>
+                        <div>
+                          {{blog_form.title(size=30, class_="form-control" )}}
+                      </div>
+                        
+                    </div>
+                    <div class="mt-2">
+                        <div class="fw-bold text-capitalize mb-2">
+                            {{ blog_form.blog.label }}
+                        </div>
+                        <div>
+                          {{ blog_form.blog(cols="40", rows="10", class_="form-control") }}
+                        </div>
+                    </div>
+                    
+                    <div class="mt-2">
+                      <input class="ghost-button" type="submit" value="Publish">
+                    </div>
+                </form>     
+              
+              <!-- {{simplemde.load}} -->
+
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <h4>Blog alert Subscription </h4>
+        <div class="col-md-12 mt-4 px-4">
+
+
+          <form action="/blog-submission" method="post">
+            {{sub_form.hidden_tag()}}
+
+            <div>
+                <div class="fw-bold text-capitalize mb-2">
+                    {{ sub_form.subscriber_email.label }}
+                </div>
+                <div>
+                  {{sub_form.subscriber_email(size=30, class_="form-control" )}}
+              </div>
+                
+            </div>
+          
+            
+            <div class="mt-2">
+              <input class="ghost-button" type="submit" value="Subscribe">
+            </div>
+          </form>  
+          
+          {% for message in get_flashed_messages() %}
+          <div class="alert alert-success mt-5">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ message }}
+          </div>
+          {% endfor %}
+        
+    </div>
+
+    
+
+
+    </div>
+  </div>
+  {% endblock %}
+
+
+  

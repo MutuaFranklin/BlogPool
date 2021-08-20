@@ -116,6 +116,21 @@ class Comment(db.Model):
         comments = Comment.query.filter_by(blog_id= id).all()
         return comments
 
+class Subscriber(db.Model):
+    __tablename__='subscribers'
+
+    id=db.Column(db.Integer,primary_key=True, autoincrement= True)
+    subscriber_email = db.Column(db.String(255),unique=True,index=True, nullable=False)
+
+    def save_subscriber(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete_subscriber(self):
+        one_subscriber = Subscriber.query.filter_by(id = 1).first()
+        db.session.delete(one_subscriber )
+        db.session.commit()
+
 
 
 

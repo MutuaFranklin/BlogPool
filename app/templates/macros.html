@@ -33,13 +33,13 @@
 
 
 
-{%macro displayComments(comments)%}
+{%macro displayBlogComments(comments)%}
 
     {% for comment in comments  %}
         <div class="col md-12">
             <p class="text-muted user">{{ comment.user.username}}</p>
-            <p> {{comment.pitch_comment}}</p>
-            <p class="time">Commented on  {{comment.posted.strftime('%Y-%m-%d %H:%M')}}</p>
+            <p> {{comment.blog_comment}}</p>
+            <p class="time">Commented on  {{comment.datetime_posted.strftime('%Y-%m-%d %H:%M')}}</p>
             
         </div>
         <hr>

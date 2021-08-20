@@ -1,11 +1,15 @@
 import os
+import secrets
+
 
 
 class Config:
     '''
     General configuration parent class
     '''
-    SECRET_KEY = os.environ.get('SECRET_KEY')
+    # SECRET_KEY = os.environ.get('SECRET_KEY')
+    SECRET_KEY = secrets.token_hex(16)
+
     UPLOADED_PHOTOS_DEST ='app/static/photos'
 
     #  email configurations

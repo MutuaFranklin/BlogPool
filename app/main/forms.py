@@ -1,8 +1,11 @@
 from typing import Text
+from flask_uploads import IMAGES
 from flask_wtf import FlaskForm
 from wtforms import StringField,TextAreaField, SelectField,SubmitField
+from wtforms.fields.simple import FileField
 from wtforms.validators import Required,Email,EqualTo, Length
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
+from wtforms.widgets.core import FileInput
 
 
 
@@ -16,6 +19,7 @@ class UpdateProfile(FlaskForm):
 class BlogForm(FlaskForm):
     title = StringField('Enter the title of your blog',validators=[Required()])
     blog = TextAreaField('Enter your blog content',validators=[Required()])
+    blog_image = FileField('Match your blog with an image')
     # submit = SubmitField('Post')
 
 class CommentForm(FlaskForm):

@@ -59,6 +59,7 @@ class Blog(db.Model):
     blog_id = db.Column(db.Integer,primary_key = True, autoincrement=True)
     blog_title = db.Column(db.String, nullable=False)
     blog_content = db.Column(db.String, nullable=False)
+    blog_image = db.Column(db.String())
     datetime_posted = db.Column(db.DateTime,default=datetime.now())
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
     blog_comments = db.relationship('Comment',backref = 'comment',lazy="dynamic")
@@ -133,4 +134,8 @@ class Subscriber(db.Model):
 
 
 
-
+class Quote:
+   def __init__(self, author, quote):
+        self.author = author
+        self.quote = quote
+        

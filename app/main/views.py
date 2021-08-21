@@ -17,7 +17,7 @@ def index():
     '''
     blog_one = Blog.query.filter_by(blog_id=4).first()
     blog_two = Blog.query.filter_by(blog_id=5).first()
-    blog_three = Blog.query.filter_by(blog_id=6).first()
+    blog_three = Blog.query.filter_by(blog_id=7).first()
     quote = get_quote()
     
     title = 'BlogPool'
@@ -66,7 +66,7 @@ def profile(uname):
         abort(404)
 
     blogs =Blog.query.filter_by(user=current_user)
-    return render_template("profile/profile.html", blog = blogs,user=current_user)
+    return render_template("profile/profile.html", blogs = blogs,user=current_user)
 
 @main.route('/user/<uname>/update/pic',methods=['GET','POST'])
 @login_required
@@ -112,7 +112,7 @@ def blog_submission():
         
 
 
-        return redirect (url_for ("main.blog_submission"))
+        return redirect (url_for ("main.home"))
     
     title = 'Blog Submission'
     return render_template('blog_submission.html', title = title, blog_form=blog_form, sub_form = sub_form)

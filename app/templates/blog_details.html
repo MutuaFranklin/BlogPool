@@ -37,11 +37,10 @@
               
             </div>
             {%if current_user.id == single_blog.user.id%}
-
-              <a href="{{url_for('main.delete_blog' , id = single_blog.blog_id)}}"><button type="button" class="btn btn-primary">Delete</button></a>
+              <a href="{{url_for('main.delete_blog' , id = single_blog.blog_id)}}"><button type="button" class="btn btn-danger m-3">Delete</button></a>
             {% endif %}
             </div>
-        <div class="col-md-8 commentForm">
+        <div class="col-md-8 commentForm mt-3">
           <!-- <form action="/main.blog_details" method="post">
             {{commentForm.hidden_tag()}}
 
@@ -64,9 +63,17 @@
 
         <div class="col-md-8 comments">
           <hr>
-          <button type="button" class="btn btn-primary">{{single_blog.blog_comments.count() }} Comment(s)</button>
+          <button type="button" class="btn btn-primary m-3">{{single_blog.blog_comments.count() }} Comment(s)</button>
           <hr>
-          {{macro.displayBlogComments(comments)}}
+          {% for comment in comments  %}
+            <div class="col md-12 mt-3">
+                <p class="text-muted user">{{ comment.user.username}}</p>
+                <p> {{comment.blog_comment}}</p>
+                <p class="time">Commented on  {{comment.datetime_posted.strftime('%Y-%m-%d %H:%M')}}</p>
+                  <a href="{{url_for('main.delete_comment' , id = comment.id)}}"><button type="button" class="btn btn-primary">Delete</button></a>
+            </div>
+          <hr>
+          {% endfor %}
         </div>
       </div>
 

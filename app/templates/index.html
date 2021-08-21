@@ -24,19 +24,18 @@
               <div class="carousel-caption d-none d-md-block">
 
                 <h5>{{ blog_one.blog_title }}</h5>
-
                 <p>{{blog_one.blog_content | truncate(100)}}</p>
-                <p class="text-muted">Posted by {{blog_one.user.username}} on {{ blog_one.datetime_posted.strftime('%Y-%m-%d %H:%M') }}</p>
+                <p class="text-muted">Posted by {{blog_one.user.username}} on {{ blog_one.datetime_posted.strftime('%Y-%m-%d %H:%M') }}</p> 
                 <a href="{{url_for('main.blog_details', id=blog_one.blog_id)}}"><button type="button" class="btn btn-primary">Read more</button></a>
 
               </div>
             </div>
             <div class="carousel-item">
-              <img src="https://apcoworldwide.com/static/e89e0229cbdcdd097dddb106918453b8/Global-Healthcare.jpg" style="height:40rem;" class="d-block w-100" alt="...">
+              <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" style="height:40rem;" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5>{{ blog_two.blog_title }}</h5>
                 <p>{{blog_two.blog_content | truncate(100)}}</p>
-                <p class="text-muted">Posted by {{blog_two.user.username}} on {{ blog_two.datetime_posted.strftime('%Y-%m-%d %H:%M') }}</p>
+                <p class="text-muted">Posted by {{blog_two.user.username}} on {{ blog_two.datetime_posted.strftime('%Y-%m-%d %H:%M') }}</p> 
                 <a href="{{url_for('main.blog_details', id=blog_two.blog_id)}}"><button type="button" class="btn btn-primary">Read more</button></a>
 
               </div>
@@ -46,8 +45,8 @@
               <div class="carousel-caption d-none d-md-block">
                 <h5>{{ blog_three.blog_title }}</h5>
                 <p>{{blog_three.blog_content | truncate(100)}}</p>
-                <p class="text-muted">Posted by {{blog_three.user.username}} on {{ blog_three.datetime_posted.strftime('%Y-%m-%d %H:%M') }}</p>
-                <a href="{{url_for('main.blog_details', id=blog_three.blog_id)}}"><button type="button" class="btn btn-primary">Read more</button></a>
+                <p class="text-muted">Posted by {{blog_three.user.username}} on {{ blog_three.datetime_posted.strftime('%Y-%m-%d %H:%M') }}</p> 
+                <a href="{{url_for('main.blog_details', id=blog_two.blog_id)}}"><button type="button" class="btn btn-primary">Read more</button></a>
 
               </div>
             </div>

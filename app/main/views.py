@@ -121,8 +121,9 @@ def blog_submission():
 @login_required
 def delete_blog(id):
     blog = Blog.query.filter_by(blog_id =id).first()
-    db.session.delete(blog)
-    db.session.commit()
+    if current_user.id == blog.user.id:
+        db.session.delete(blog)
+        db.session.commit()
 
     return redirect(url_for('main.home'))
 
@@ -130,9 +131,11 @@ def delete_blog(id):
 @main.route('/blog/comment/delete/<int:id>')
 @login_required
 def delete_comment(id):
+
     comment = Comment.query.filter_by(id =id).first()
-    db.session.delete(comment)
-    db.session.commit()
+    if current_user.id == comment.user.id:
+        db.session.delete(comment)
+        db.session.commit()
 
     return redirect(url_for('main.blog_details', id = comment.blog_id))
 

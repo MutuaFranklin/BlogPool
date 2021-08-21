@@ -12,12 +12,11 @@
 {% block content %}
 
   <div class="container-fluid blog-details">
-
-    <div class="row">
-
       <div class="col-md-8">
-          <h2>blogs</h2>
           <div class="jumbotron">
+            <div class="image">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8huvp8b3bXl2v8ac6MSqz0Uk3zqauY2ttIA&usqp=CAU" style="height: 25rem;width: 100%;" alt="">
+            </div>
             <div class="container">
               <div class="topheader">
                 <h3>{{single_blog.blog_title}}</h3>
@@ -37,12 +36,12 @@
               </div> 
               
             </div>
-            <a href="{{url_for('main.delete_blog' , id = single_blog.blog_id)}}"><button type="button" class="btn btn-primary">Delete</button></a>
-          </div>
+            {%if current_user.id == single_blog.user.id%}
 
-      </div>
-      <div class="col-md-12 commentForm">
-        <div class="col-md-8">
+              <a href="{{url_for('main.delete_blog' , id = single_blog.blog_id)}}"><button type="button" class="btn btn-primary">Delete</button></a>
+            {% endif %}
+            </div>
+        <div class="col-md-8 commentForm">
           <!-- <form action="/main.blog_details" method="post">
             {{commentForm.hidden_tag()}}
 
@@ -61,23 +60,17 @@
             </div>
           </form>              -->
           {{wtf.quick_form(commentForm)}}
+        </div>
 
+        <div class="col-md-8 comments">
+          <hr>
+          <button type="button" class="btn btn-primary">{{single_blog.blog_comments.count() }} Comment(s)</button>
+          <hr>
+          {{macro.displayBlogComments(comments)}}
         </div>
       </div>
 
-      <div class="col-md-12 comments">
-        <hr>
-        <button type="button" class="btn btn-primary">{{single_blog.blog_comments.count() }} Comment(s)</button>
-        <hr>
-        {{macro.displayBlogComments(comments)}}
-      </div>
-    </div>
-
-
-
-
-    </div>
-  </div>
+</div>
   {% endblock %}
 
 

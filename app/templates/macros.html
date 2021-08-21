@@ -14,7 +14,7 @@
             <p class="card-text">
                 {{blog.blog_content | truncate(50)}}
             </p>
-            <p class="card-text-muted">Posted on {{ blog.datetime_posted.strftime('%Y-%m-%d %H:%M') }}</p>
+            <p class="text-muted">Posted by {{blog.user.username}} on {{ blog.datetime_posted.strftime('%Y-%m-%d %H:%M') }}</p>
 
             <a href="{{url_for('main.blog_details', id=blog.blog_id)}}" class="btn btn-primary">Read more</a>
           </div>
@@ -39,8 +39,7 @@
             <p class="text-muted user">{{ comment.user.username}}</p>
             <p> {{comment.blog_comment}}</p>
             <p class="time">Commented on  {{comment.datetime_posted.strftime('%Y-%m-%d %H:%M')}}</p>
-            <a href="{{url_for('main.delete_comment' , id = comment.id)}}"><button type="button" class="btn btn-primary">Delete</button></a>
-
+                <a href="{{url_for('main.delete_comment' , id = comment.id)}}"><button type="button" class="btn btn-primary">Delete</button></a>
             
         </div>
         <hr>

@@ -18,7 +18,7 @@
         <div class="container-fluid">
           <div class="col-md-12 mt-4 px-4">
               <!-- {{wtf.quick_form(blog_form)}} -->
-                <form action="/blog-submission" method="post">
+                <form action="/blog-submission" method="post" enctype = "multipart/form-data">
                     {{blog_form.hidden_tag()}}
 
                     <div>
@@ -38,6 +38,14 @@
                           {{ blog_form.blog(cols="40", rows="10", class_="form-control") }}
                         </div>
                     </div>
+                    <div class="mt-2">
+                      <div class="fw-bold text-capitalize mb-2">
+                          {{ blog_form.blog_image.label }}
+                      </div>
+                      <div>
+                        {{blog_form.blog_image(size=30, class_="form-control" )}}
+                      </div>
+                  </div>
                     
                     <div class="mt-2">
                       <input class="ghost-button" type="submit" value="Publish">

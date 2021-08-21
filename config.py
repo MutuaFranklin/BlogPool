@@ -10,6 +10,7 @@ class Config:
     # SECRET_KEY = os.environ.get('SECRET_KEY')
     SECRET_KEY = secrets.token_hex(16)
 
+    QUOTE_API_URL = 'http://quotes.stormconsultancy.co.uk/random.json'
     UPLOADED_PHOTOS_DEST ='app/static/photos'
 
     #  email configurations

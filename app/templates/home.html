@@ -11,7 +11,41 @@
 
 {% block content %}
 
-  <div class="container-fluid home">
+<main class="my-5">
+  <div class="container">
+    <!--Section: Content-->
+    <section class="text-center">
+      <h4 class="mb-2"><strong>Latest posts</strong></h4>
+      <a href="{{url_for('main.blog_submission')}}"><h6 class="mb-2"><strong>Publish a Post</strong></h6></a>
+
+
+      <div class="row">
+        {{macro.displayBlogs(blogs)}}
+
+      </div>
+    </section>
+    <!--Section: Content-->
+
+    <!-- Pagination -->
+    <nav class="my-4" aria-label="...">
+      <ul class="pagination pagination-circle justify-content-center">
+        <li class="page-item">
+          <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item active" aria-current="page">
+          <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</main>
+
+  <!-- <div class="container-fluid home">
     <a href="{{url_for('main.blog_submission')}}"><button type="button" class="btn btn-secondary mt-5">Click here to write and post your blog</button></a>
 
     <div class="row">
@@ -23,7 +57,7 @@
 
 
     </div>
-  </div>
+  </div> -->
   {% endblock %}
 
 

@@ -1,0 +1,29 @@
+.navbar{
+    /* background-color: transparent !important; */
+
+}
+
+body{
+    height: 100%;
+    /* background-image:url('https://analyticsinsight.b-cdn.net/wp-content/uploads/2021/01/Media-and-Entertainment.jpg'); */
+    /* background-image: url('https://www.kaspersky.com/content/en-global/images/repository/isc/2020/deep-web-cover.jpg'); */
+    background-size: cover;
+}
+
+.index{
+    display: flex;
+    justify-content: center;
+}
+
+.index-container{
+    display: flex;
+    justify-content: center;
+}
+
+.blogs {
+}
+
+.blogs h1 {
+    text-align: center;
+    font-size: 2rem;
+}

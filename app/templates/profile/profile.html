@@ -20,16 +20,18 @@
       <div class="prof-image">
         <h4>Profile</h4>
 
-        {% if user.profile_pic_path %}
+        {% if user.profile_pic %}
     
-        <img src="{{url_for('static',filename=user.profile_pic_path)}}"style="border-radius: 5%; height:30rem; width: 30rem;" alt="" class="img-thumbnail">
+        <img src="{{url_for('static',filename=user.profile_pic)}}"style="border-radius: 5%; height:30rem; width: 30rem;" alt="" class="img-thumbnail">
     
         {%else%}
         <img src="{{url_for('static',filename='images/avartar.jpeg')}}" style="border-radius: 5%; height:100%; width: 100%;"alt="" class="img-thumbnail">  
         {% endif %}
       </div>
       <div class="user-profile">
-        <h3> {{user.username| capitalize}} </h3>
+        <h3> {{user.first_name}} {{user.last_name}} </h3>
+
+        <h5> {{user.username| capitalize}} </h5>
 
         {% if user.bio %}
           <p> {{user.bio}}</p>
@@ -40,6 +42,15 @@
 
        
 
+      </div>
+      <div class="prof-update-form">
+        <p>Update your Profile picture</p>
+        <form  action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype = "multipart/form-data">
+  
+        <input type="file"  name="photo" class="form-control" required>
+        <input type="submit">
+    
+        </form>
       </div>
       
 

@@ -19,7 +19,7 @@ class UpdateProfile(FlaskForm):
 class BlogForm(FlaskForm):
     title = StringField('Title of your blog',validators=[Required()])
     blog = TextAreaField('Blog content',validators=[Required()])
-    blog_category =SelectField("Blog category",choices=[('Lifestyle Blog','Lifestyle Blog'),('Business Blog','Business Blog'), ('Technology Blog','Technology Blog'), ('Fashion Blog','Fashion blog'), ('Other','Other')],validators=[Required()])    
+    blog_category =SelectField("Blog category",choices=[('Lifestyle Blog','Lifestyle Blog'),('Business Blog','Business Blog'), ('Technology Blog','Technology Blog'), ('Fashion Blog','Fashion blog'),('Sports Blog','Sports Blog'), ('Other','Other')],validators=[Required()])    
     blog_image = FileField('Match your blog with an image')
     # submit = SubmitField('Post')
 

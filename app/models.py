@@ -87,7 +87,7 @@ class Blog(db.Model):
 
     @classmethod
     def display_blogs(cls,blog_id):
-        blogs = Blog.query.filter_by(blog_id=blog_id).all()
+        blogs = Blog.query.filter_by(blog_id=blog_id).all().order_by(Blog.datetime_posted) 
         return blogs
 
 class Comment(db.Model):

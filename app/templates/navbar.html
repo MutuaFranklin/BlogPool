@@ -27,6 +27,9 @@
             <a class="nav-link" href="{{url_for('main.entertainment')}}">Entertainment</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="{{url_for('main.sports')}}">Sports</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{{url_for('main.other')}}">Other</a>
           </li>
           <li class="nav-item dropdown">
@@ -40,7 +43,7 @@
           </li>
           {% else %}
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Main Home</a>
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{url_for('auth.login')}}">Login</a>

@@ -17,7 +17,8 @@ def login():
 
         flash('Invalid username or Password')
 
-    return render_template('auth/login.html',login_form = login_form)
+    title = "BlogPool Login"
+    return render_template('auth/login.html',login_form = login_form, title=title)
 
 @auth.route('/logout')
 @login_required

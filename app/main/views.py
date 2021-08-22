@@ -29,7 +29,8 @@ def home():
     '''
         home page view rendered after authentication process.
     '''   
-    blogs = Blog.query.all() 
+    blogs = Blog.query.all()
+    # blogs = Blog.query.order_by('datetime_posted').all
     # if blogs is None:
     #     abort(404)
     # format_blog = markdown2.markdown(blogs.blog_content,extras=["code-friendly", "fenced-code-blocks"])
@@ -54,8 +55,9 @@ def blog_details(id):
         return redirect (url_for ("main.blog_details", id= single_blog.blog_id))
 
 
-    
-    return render_template('blog_details.html',comments=comments,single_blog=single_blog, commentForm=commentForm)
+    title = 'Blog Details'
+
+    return render_template('blog_details.html',comments=comments,single_blog=single_blog, commentForm=commentForm, title=title)
 
 @main.route('/user/<uname>')
 @login_required
@@ -215,6 +217,17 @@ def entertainment():
     title = 'Entertainment Blogs'
     h4 = 'Entertainment Blogs'
     random = "Entertainment Blog"
+    blogs = Blog.query.filter_by(blog_category =random).all()
+    return render_template('blog_categories.html', title = title, blogs=blogs, h4 =h4)
+
+
+@main.route('/sports')
+@login_required
+def sports():
+
+    title = 'Sports-Blogs'
+    h4 = 'Sports Blogs'
+    random = "Sports Blog"
     blogs = Blog.query.filter_by(blog_category =random).all()
     return render_template('blog_categories.html', title = title, blogs=blogs, h4 =h4)
 

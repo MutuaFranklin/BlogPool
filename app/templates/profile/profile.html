@@ -18,7 +18,7 @@
 
     <div class="col-md-3 profile-details">
       <div class="prof-image">
-        <h4>Profile</h4>
+        <h6 class="mt-3">Profile</h6>
 
         {% if user.profile_pic %}
     
@@ -40,6 +40,11 @@
           <p> {{user.username| capitalize}} has no bio </p>
         {% endif %}
 
+        {% if user == current_user %}
+        <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
+        {% endif %}
+
+
        
 
       </div>
@@ -59,7 +64,7 @@
     </div>
     <div class="col-md-8">
       <div class="row">
-        <h2>No results. why?</h2>
+        <h6 class="mt-3">Your blog posts</h6>
         {{macro.displayBlogs(blogs)}}
       </div>
     </div>

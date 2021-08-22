@@ -3,6 +3,29 @@
 
 }
 
+.navbar-nav li a{
+    color: thistle !important;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-right: 20px;
+    font-family: 'Aclonica', sans-serif;
+}
+
+.navbar-nav li a:hover{
+    color: azure !important;
+}
+
+
+.navbar-brand{
+    color: thistle !important;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Rancho', cursive;
+
+    
+}
+  
+
 body{
     height: 100%;
     /* background-image:url('https://analyticsinsight.b-cdn.net/wp-content/uploads/2021/01/Media-and-Entertainment.jpg'); */
@@ -55,3 +78,6 @@ body{
     align-items: center;
     justify-self: center;
 }
+
+
+/* LOGIN */

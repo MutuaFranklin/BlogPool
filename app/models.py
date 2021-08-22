@@ -59,6 +59,7 @@ class Blog(db.Model):
     blog_id = db.Column(db.Integer,primary_key = True, autoincrement=True)
     blog_title = db.Column(db.String, nullable=False)
     blog_content = db.Column(db.String, nullable=False)
+    blog_category= db.Column(db.String, nullable = False)
     blog_image = db.Column(db.String())
     datetime_posted = db.Column(db.DateTime,default=datetime.now())
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))

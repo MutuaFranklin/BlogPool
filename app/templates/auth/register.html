@@ -15,14 +15,14 @@
             
           <div class="container">
             <div class="header">
-                <div class="d-flex justify-content-space-between align-items-center">
+                <div class="d-flex">
                     <div>
                         <!-- <img class="sign-up-image" src="../static/images/access_account.svg" alt="access_account image"> -->
                     </div>
                     <div class="signup-card px-4 py-2">
                         <h4 class="fw-light text--center mb-4">Blog<span class="text--primary">pool</span></h4>
                         <p class="fw-light">Fill in the fields to create an account</p>
-                        <form class="d-flex flex-column justify-content-center align-items-center" action="/auth/register" method="post">
+                        <form class="d-flex flex-column" action="/auth/register" method="post">
                             {{registration_form.hidden_tag()}}
                             <div class="mb-2">
                                 <div class="fw-bold text-capitalize mb-2">
@@ -72,8 +72,8 @@
                                   {{registration_form.password_confirm(size=30, class_="form-control")}}
                               </div>
                           </div>
-                          <div class="mt-2">
-                            <input class="signup-ghost-button" type="submit" value="Create an account">
+                          <div class="mt-4">
+                            <input class="ghost-button" type="submit" value="Create an account">
                           </div>
                         </form>
                     </div>

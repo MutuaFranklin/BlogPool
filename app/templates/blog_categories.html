@@ -1,0 +1,52 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% import 'macros.html' as macro %}
+
+
+<!-- Styles block -->   
+{% block styles%}
+  {{ super() }}
+  <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+{% endblock %}
+
+{% block content %}
+
+<main class="my-5">
+  <div class="container">
+    <!--Section: Content-->
+    <section class="text-center">
+      {% if h4 %}
+      <h4 class="mb-2"><strong>{{h4}}</strong></h4>
+      {% endif %}
+      <a href="{{url_for('main.blog_submission')}}"><h6 class="mb-2"><strong>Publish a Post</strong></h6></a>
+
+
+      <div class="row">
+        {{macro.displayBlogs(blogs)}}
+      </div>
+    </section>
+    <!--Section: Content-->
+
+    <!-- Pagination -->
+    <nav class="my-4" aria-label="...">
+      <ul class="pagination pagination-circle justify-content-center">
+        <li class="page-item">
+          <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item active" aria-current="page">
+          <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</main>
+
+{% endblock %}
+
+
+  

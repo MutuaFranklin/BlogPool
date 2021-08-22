@@ -1,32 +1,37 @@
 body{
     background-color: rgb(236, 236, 241);
-}
+    font-family: 'Merienda', cursive;}
 
 .navbar{
-    /* background-color: transparent !important; */
+    font-family: 'Lobster', cursive;
 
 }
 
 .navbar-nav li a{
     color:  #8c7873 !important;
-    font-size: 14px;
+    font-size: 17px;
     font-weight: 600;
     margin-right: 20px;
-    font-family: 'Aclonica', sans-serif;
+    font-family: 'Lobster', cursive;
 }
 
 .navbar-nav li a:hover{
-    color:  #8c7873 !important;
+    color: #409cbf !important;
 }
 
 
 .navbar-brand{
     color: #409cbf !important;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
-    font-family: 'Rancho', cursive;
+    font-family: 'Lobster', cursive;
 
     
+}
+
+.navbar-brand:hover{
+    color:  #8c7873 !important;
+
 }
   
 
@@ -43,6 +48,11 @@ body{
     justify-content: center;
 }
 
+.index .blogs h1{
+    font-size: 18px;
+    color: #1f9fd1;
+
+}
 .index-container{
     display: flex;
     flex-direction: column;
@@ -54,6 +64,12 @@ body{
     background-color: #1f9fd1 !important;
     border: none;
 
+}
+
+.index .quote p{
+    font-family: 'Dancing Script', cursive;
+    font-size:20px;
+    
 }
 
 /* HOME */
@@ -195,7 +211,6 @@ section .btn:hover{
 
 
 /* SIGNUP */
-/* LOGIN */
 .signup{
     height: 100%;
 }
@@ -207,7 +222,7 @@ section .btn:hover{
 
 .signup .submit-btn{
     height: 40px;
-    width: 9rem;
+    width: 10rem;
     border-radius: 5px;
     background-color: #409cbf;
     border: none;

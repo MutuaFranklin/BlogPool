@@ -169,3 +169,51 @@ section .btn:hover{
 
 
 /* LOGIN */
+.login{
+    height: 100%;
+}
+
+.login .row{
+    margin-top: 10%;
+}
+
+.login a{
+    text-decoration: none;
+    color: #409cbf;;
+}
+
+.login .submit-btn{
+    height: 40px;
+    border-radius: 5px;
+    background-color: #409cbf;
+    border: none;
+    color: white;
+}
+.login .submit-btn:hover{
+    background-color: rgb(29, 47, 109);
+}
+
+
+/* SIGNUP */
+/* LOGIN */
+.signup{
+    height: 100%;
+}
+
+.signup .row{
+    margin-top: 10%;
+}
+
+
+.signup .submit-btn{
+    height: 40px;
+    width: 9rem;
+    border-radius: 5px;
+    background-color: #409cbf;
+    border: none;
+    color: white;
+}
+.signup .submit-btn:hover{
+    background-color: rgb(29, 47, 109);
+}
+

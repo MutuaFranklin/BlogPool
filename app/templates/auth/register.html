@@ -10,7 +10,11 @@
 {% block content %}
 <div class="container signup">
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-7">
+        <img src="https://www.smeinfo.com.my/wp-content/uploads/2021/02/step-to-register-768x461.png" style="height: 100%; width: 100%;" alt="">
+
+    </div>
+    <div class="col-md-5">
         <div class="form">
             
           <div class="container">
@@ -20,7 +24,6 @@
                         <!-- <img class="sign-up-image" src="../static/images/access_account.svg" alt="access_account image"> -->
                     </div>
                     <div class="signup-card px-4 py-2">
-                        <h4 class="fw-light text--center mb-4">Blog<span class="text--primary">pool</span></h4>
                         <p class="fw-light">Fill in the fields to create an account</p>
                         <form class="d-flex flex-column" action="/auth/register" method="post">
                             {{registration_form.hidden_tag()}}
@@ -73,7 +76,7 @@
                               </div>
                           </div>
                           <div class="mt-4">
-                            <input class="ghost-button" type="submit" value="Create an account">
+                            <input class="submit-btn" type="submit" value="Create an account">
                           </div>
                         </form>
                     </div>

@@ -9,7 +9,7 @@
 {% block content %}
 <div class="container login"> 
     <div class="row">
-      <div class="col-md-6 login-form">
+      <div class="col-md-5 login-form">
         <!--Flash message -->
         {% for message in get_flashed_messages() %}
           <div class="alert alert-danger">
@@ -20,7 +20,6 @@
         <!-- Login form -->
         <!-- {{wtf.quick_form(login_form)}} -->
         <div class="login-card">
-          <h4 class="fw-light text--center mb-4">Blog<span class="text--primary">Pool</span></h4>
           <p class="fw-light">Fill in the fields to login</p>
           <form class="form" action="/auth/login" method="post">
               {{login_form.hidden_tag()}}
@@ -49,18 +48,16 @@
                 </div>
               </div>
               <div class="mt-4">
-                <input class="ghost-button" type="submit" value="Login">
+                <input class="submit-btn" type="submit" value="Login">
               </div>
               <p style="font-weight: bold; margin-top: 10px;"> Don't have an account? <a href="{{url_for('auth.register')}}">Sign up here</a></p>
           </form>
         </div>
       </div>
-      <div class="col-md-6">
-        <img src="" alt="">
-        <h3>image</h3>
+      <div class="col-md-7">
+        <img src="{{url_for('static', filename='images/Login.png')}}" style="height: 100%; width: 100%;" alt="">
       </div>
     </div>
 </div>
-
 {% endblock%}
       

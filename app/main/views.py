@@ -46,7 +46,7 @@ def home():
 def blog_details(id):
     single_blog=Blog.query.get(id)
     comments= Comment.query.filter_by(blog_id=id).all()
-    # comments_order = Comment.query.order_by(desc(Comment.id)).all
+    # comments = Comment.query.order_by(Comment.datetime_posted.desc()).all
 
     commentForm=CommentForm()
     
@@ -136,6 +136,12 @@ def blog_submission():
             user=current_user)
     
         new_blog.save_blog()
+
+    if 'photo' in request.files:
+        filename = photos.save(request.files['photo'])
+        path = f'photos/{filename}'
+        new_blog.blog_image = path
+        db.session.commit()
 
         subscribers=Subscriber.query.all()
 

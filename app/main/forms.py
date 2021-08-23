@@ -21,7 +21,7 @@ class BlogForm(FlaskForm):
     blog = TextAreaField('Blog content',validators=[Required()])
     blog_category =SelectField("Blog category",choices=[('Lifestyle Blog','Lifestyle Blog'),('Business Blog','Business Blog'), ('Technology Blog','Technology Blog'), ('Fashion Blog','Fashion blog'),('Entertainment Blog','Entertainment blog'),('Sports Blog','Sports Blog'), ('Other','Other')],validators=[Required()])    
     blog_image = FileField('Match your blog with an image')
-    # submit = SubmitField('Post')
+    submit = SubmitField('Post')
 
 class CommentForm(FlaskForm):
     blog_comment = TextAreaField('Add a comment', validators=[Required()])

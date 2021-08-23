@@ -7,8 +7,8 @@ from .. import db,photos
 from .forms import SubscriberForm, UpdateProfile, BlogForm, CommentForm
 import markdown2 
 from ..email import mail_message
-from werkzeug import secure_filename
 from sqlalchemy import desc
+from werkzeug import secure_filename
 
 
 
@@ -32,10 +32,10 @@ def home():
         home page view rendered after authentication process.
     '''   
     blogs = Blog.query.all()
-    # blogs = Blog.query.order_by('datetime_posted').all
+    # blogs = Blog.query.order_by(desc(Blog.datetime_posted)).all
     # if blogs is None:
     #     abort(404)
-    # format_blog = markdown2.markdown(blogs.blog_content,extras=["code-friendly", "fenced-code-blocks"])
+    #format_blog = markdown2.markdown(blogs.blog_content,extras=["code-friendly", "fenced-code-blocks"])
    
     title = 'BlogPool Home'
     return render_template('home.html', title = title, blogs=blogs)
@@ -46,7 +46,7 @@ def home():
 def blog_details(id):
     single_blog=Blog.query.get(id)
     comments= Comment.query.filter_by(blog_id=id).all()
-    # comments = Comment.query.order_by('datetime_posted').all
+    # comments_order = Comment.query.order_by(desc(Comment.id)).all
 
     commentForm=CommentForm()
     
@@ -165,34 +165,15 @@ def edit_blog(id):
     """
     Edit a blogpost
     """
-
-    blog = Blog.query.filter_by(blog_id =id).first()
-    if current_user.id == blog.user.id:
-    
-        blog_form = BlogForm()
-        if blog_form.validate_on_submit() and 'photo' in request.files:
-            filename = photos.save(request.files['photo'])
-            path=f'photos/{filename}'
-            blog_title = blog_form.title.data
-            blog_content = blog_form.blog.data
-            blog_category = blog_form.blog_category.data
-            blog_image = path
-            user=current_user
-            db.session.commit()
-
-            subscribers=Subscriber.query.all()
-
-            for subscriber in subscribers:
-                mail_message("Blog Post Update","email/newPost/newPostAlert", subscriber.subscriber_email)
-
-            return redirect (url_for ("main.home"))
-        elif request.method == 'GET':
-            blog_form.title.data = blog.blog_title
-            blog_form.blog.data = blog.blog_content
-            blog_form.blog_category.data = blog.blog_category
-
-        title = "Update Post"
-    return render_template('blog_submission.html', title = title, blog_form=blog_form)
+    blog=Blog.query.get(id)
+    form = BlogForm(formdata=request.form, obj=blog)
+    if request.method == 'POST' and form.validate_on_submit():
+        flash('Post updated successfully!')
+        blog_post = Blog.query.filter_by(blog_id=id).update({"blog_title": form.title.data,"blog_category":form.blog_category.data,"blog_content": form.content.data})
+        db.session.commit()
+        return redirect(url_for('main.home',id = blog.blog_id ))   
+    title = "Update Post"
+    return render_template('blog_submission.html', title = title, form=form)
 
 
 

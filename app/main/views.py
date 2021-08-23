@@ -31,8 +31,8 @@ def home():
     '''
         home page view rendered after authentication process.
     '''   
-    blogs = Blog.query.all()
-    # blogs = Blog.query.order_by(desc(Blog.datetime_posted)).all
+    # blogs = Blog.query.all()
+    blogs = Blog.query.order_by(Blog.datetime_posted.desc()).all()
     # if blogs is None:
     #     abort(404)
     #format_blog = markdown2.markdown(blogs.blog_content,extras=["code-friendly", "fenced-code-blocks"])

@@ -194,9 +194,8 @@ def delete_blog(id):
 def delete_comment(id):
 
     comment = Comment.query.filter_by(id =id).first()
-    if current_user.id == comment.user.id:
-        db.session.delete(comment)
-        db.session.commit()
+    db.session.delete(comment)
+    db.session.commit()
 
     return redirect(url_for('main.blog_details', id = comment.blog_id))
 

@@ -1,15 +1,16 @@
-# PitchCentre
+# BlogPool
 
 ### Description
 
-A flask web platform where users can post pitches based on the available categories, comment, and vote on other posted pitches.
+A flask based personal blogging website where you can create and share your opinions and other users can read and comment on them. Additionally, add a feature that displays random quotes to inspire your users.
+
 ### Author
 
 **Franklin Mutua** - [Github link](https://github.com/MutuaFranklin/)
 
 ### Date of current version
 
-17/08/2021
+20/08/2021
 
 ## Project setup instructions
 
@@ -28,7 +29,7 @@ Python Language
 
 When you create a repository on GitHub, it exists as a remote repository. You can clone your repository to create a local copy on your computer and sync between the two locations. Here is a series of steps on how to set up the project on your local machine.
 
-Click [PitchCentre](https://github.com/MutuaFranklin/PitchCentre) to navigate on the main page of the project repository on Github.
+Click [BlogPool](https://github.com/MutuaFranklin/BlogPool) to navigate on the main page of the project repository on Github.
 
 ```
 Clone the repository using HTTPS, click "Clone with HTTPS".
@@ -39,32 +40,35 @@ Open Terminal. Change the current working directory to the location where you wa
 ```
 
 ```
-Type https://github.com/MutuaFranklin/PitchCentre and press Enter to create your local clone.
+Type https://github.com/MutuaFranklin/BlogPool and press Enter to create your local clone.
 
 ```
 
 ```
-Open PitchCentre, the cloned Repo in terminal and run : pip install -r requirements.txt to install the app dependencies
+Open BlogPool, the cloned Repo in terminal and run : pip install -r requirements.txt to install the app dependencies
 
 ```
 
 ```
-Run source pitchVirtual/bin/activate to activate the virtual environment and ./start.sh to launch the app
+Run source blogVirtual/bin/activate to activate the virtual environment and ./start.sh to launch the app
 
 ```
 
 ## BDD
 
 As a user, I would like to:
-- see the pitches other people have posted.
-- vote on the pitch they liked and give it a downvote or upvote.
-- be signed in for me to leave a comment
-- receive a welcoming email once I sign up.
-- view the pitches I have created in my profile page.
-- comment on the different pitches and leave feedback.
-- submit a pitch in any category.
-- view the different categories.
+- I would like to view the blog posts on the site
+- I would like to comment on blog posts
+- I would like to view the most recent posts
+- I would like to an email alert when a new post is made by joining a subscription.
+- I would like to see random quotes on the site
 
+As a writer, I would like to:
+
+- sign in to the blog
+- create a blog from the application.
+- delete comments that I find insulting or degrading.
+- update or delete blogs I have created.
 
 ## Technologies Used
 
@@ -72,11 +76,11 @@ As a user, I would like to:
 - Bootstrap
 - CSS
 - PostgreSQL
-- FontAwesome
+- Google fonts
 
 ## Live link
 
-Live link: [PitchCentre live link](https://newsappclear.herokuapp.com/)
+Live link: [BlogPool live link](https://blogbyfrank.herokuapp.com/)
 
 ## Support and contact details
 

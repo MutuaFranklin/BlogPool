@@ -16,6 +16,7 @@ simple = SimpleMDE()
 db = SQLAlchemy()
 mail = Mail()
 photos = UploadSet('photos',IMAGES)
+
 bootstrap = Bootstrap()
 
 

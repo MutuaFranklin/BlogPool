@@ -7,6 +7,7 @@ from .. import db,photos
 from .forms import SubscriberForm, UpdateProfile, BlogForm, CommentForm
 import markdown2 
 from ..email import mail_message
+from werkzeug import secure_filename
 
 
 
@@ -117,14 +118,14 @@ def blog_submission():
     sub_form = SubscriberForm()
 
     # if blog_form.validate_on_submit() and 'photo' in request.files:
-    #     filename = photos.save(request.files['photo'])
-    #     path=f'photos/{filename}'
-    #     new_blog = Blog(
-    #         blog_title = blog_form.title.data, 
-    #         blog_content = blog_form.blog.data, 
-    #         blog_category = blog_form.blog_category.data, 
-    #         blog_image = path,
-    #         user=current_user)
+        # filename = photos.save(request.files['photo'])
+        # path=f'photos/{filename}'
+        # new_blog = Blog(
+        #     blog_title = blog_form.title.data, 
+        #     blog_content = blog_form.blog.data, 
+        #     blog_category = blog_form.blog_category.data, 
+        #     blog_image = path,
+        #     user=current_user)
     if blog_form.validate_on_submit():
         new_blog = Blog(
             blog_title = blog_form.title.data, 

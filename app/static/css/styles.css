@@ -8,7 +8,7 @@ body{
 }
 
 .navbar-nav li a{
-    color:  #8c7873 !important;
+    color:  #aa763b !important;
     font-size: 17px;
     font-weight: 600;
     margin-right: 20px;
@@ -29,11 +29,15 @@ body{
     
 }
 
+
 .navbar-brand:hover{
     color:  #8c7873 !important;
 
 }
   
+.navbar li .username{
+    color: #409cbf !important;
+}
 
 body{
     height: 100%;
@@ -66,6 +70,11 @@ body{
 
 }
 
+.index .btn:hover{
+    background-color: #8c7873 !important;
+
+}
+
 .index .quote p{
     font-family: 'Dancing Script', cursive;
     font-size:20px;
@@ -74,7 +83,6 @@ body{
 
 /* HOME */
 section a{
-    text-decoration: none;
     color: #1f9fd1;
 }
 
@@ -181,8 +189,38 @@ section .btn:hover{
     justify-self: center;
 }
 
+.profile .prof-image h6{
+    text-align: center;
+    color: #409cbf;
+    font-weight: 800;
+
+}
 
 
+.blogPosts{
+    text-align: center;
+}
+
+.blogPosts h6{
+    color: #409cbf;
+    font-weight: 800;
+}
+
+
+.blogPosts .btn{
+    height: 40px;
+    border-radius: 5px;
+    background-color: #409cbf;
+    border: none;
+    color: white;
+}
+.prof-update-form .submit-btn{
+    height: 40px;
+    border-radius: 5px;
+    background-color: #409cbf;
+    border: none;
+    color: white;
+}
 
 /* LOGIN */
 .login{
@@ -228,7 +266,40 @@ section .btn:hover{
     border: none;
     color: white;
 }
+
 .signup .submit-btn:hover{
     background-color: rgb(29, 47, 109);
 }
 
+
+
+/* BLOG SUBMISSION */
+
+.blog-submission{
+    height: 100%;
+
+}
+
+.blog-submission .row{
+    margin-top: 3%;
+
+}
+
+
+.submission h6, .subscription h6{
+    text-align: center;
+    margin-top: 2%;
+    color: #409cbf;;
+
+}
+
+
+.blog-submission .submit-btn{
+    height: 40px;
+    width: 5rem;
+    font-size: 13px;
+    border-radius: 5px;
+    background-color: #409cbf;
+    border: none;
+    color: white;
+}

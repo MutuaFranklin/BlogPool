@@ -37,6 +37,13 @@ class User(UserMixin,db.Model):
     def verify_password(self,password):
         print(self.password_secure)
         return check_password_hash(self.password_secure,password)
+    
+    def save_user(self):
+        """
+        method saves new user in users db table
+        """
+        db.session.add(self)
+        db.session.commit()
 
         
     def __repr__(self):
@@ -87,7 +94,8 @@ class Blog(db.Model):
 
     @classmethod
     def display_blogs(cls,blog_id):
-        blogs = Blog.query.filter_by(blog_id=blog_id).all().order_by(Blog.datetime_posted) 
+        
+        blogs = Blog.query.filter_by(blog_id=blog_id).all()
         return blogs
 
 class Comment(db.Model):

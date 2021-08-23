@@ -44,6 +44,8 @@ def home():
 def blog_details(id):
     single_blog=Blog.query.get(id)
     comments= Comment.query.filter_by(blog_id=id).all()
+    # comments = Comment.query.order_by('datetime_posted').all
+
     commentForm=CommentForm()
     
 
@@ -114,6 +116,15 @@ def blog_submission():
     blog_form = BlogForm()
     sub_form = SubscriberForm()
 
+    # if blog_form.validate_on_submit() and 'photo' in request.files:
+    #     filename = photos.save(request.files['photo'])
+    #     path=f'photos/{filename}'
+    #     new_blog = Blog(
+    #         blog_title = blog_form.title.data, 
+    #         blog_content = blog_form.blog.data, 
+    #         blog_category = blog_form.blog_category.data, 
+    #         blog_image = path,
+    #         user=current_user)
     if blog_form.validate_on_submit():
         new_blog = Blog(
             blog_title = blog_form.title.data, 
@@ -145,6 +156,45 @@ def blog_submission():
     title = 'Blog Submission'
     return render_template('blog_submission.html', title = title, blog_form=blog_form, sub_form = sub_form)
 
+
+@main.route('/blog/editblog/<int:id>', methods=['GET', 'POST'])
+@login_required
+def edit_blog(id):
+    """
+    Edit a blogpost
+    """
+
+    blog = Blog.query.filter_by(blog_id =id).first()
+    if current_user.id == blog.user.id:
+    
+        blog_form = BlogForm()
+        if blog_form.validate_on_submit() and 'photo' in request.files:
+            filename = photos.save(request.files['photo'])
+            path=f'photos/{filename}'
+            blog_title = blog_form.title.data
+            blog_content = blog_form.blog.data
+            blog_category = blog_form.blog_category.data
+            blog_image = path
+            user=current_user
+            db.session.commit()
+
+            subscribers=Subscriber.query.all()
+
+            for subscriber in subscribers:
+                mail_message("Blog Post Update","email/newPost/newPostAlert", subscriber.subscriber_email)
+
+            return redirect (url_for ("main.home"))
+        elif request.method == 'GET':
+            blog_form.title.data = blog.blog_title
+            blog_form.blog.data = blog.blog_content
+            blog_form.blog_category.data = blog.blog_category
+
+        title = "Update Post"
+    return render_template('blog_submission.html', title = title, blog_form=blog_form)
+
+
+
+
 @main.route('/blog/delete/<int:id>')
 @login_required
 def delete_blog(id):
@@ -166,6 +216,7 @@ def delete_comment(id):
         db.session.commit()
 
     return redirect(url_for('main.blog_details', id = comment.blog_id))
+
 
 
 @main.route('/Business')

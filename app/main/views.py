@@ -8,6 +8,7 @@ from .forms import SubscriberForm, UpdateProfile, BlogForm, CommentForm
 import markdown2 
 from ..email import mail_message
 from werkzeug import secure_filename
+from sqlalchemy import desc
 
 
 

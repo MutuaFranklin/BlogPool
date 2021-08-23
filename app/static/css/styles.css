@@ -1,16 +1,17 @@
 body{
-    background-color: rgb(236, 236, 241);
-    font-family: 'Merienda', cursive;}
+    font-family: 'Merienda', cursive;
+}
 
 .navbar{
     font-family: 'Lobster', cursive;
+    background-color: black !important;
+
 
 }
 
 .navbar-nav li a{
-    color:  #aa763b !important;
+    color: #d8e3e7 !important;
     font-size: 17px;
-    font-weight: 600;
     margin-right: 20px;
     font-family: 'Lobster', cursive;
 }
@@ -21,7 +22,7 @@ body{
 
 
 .navbar-brand{
-    color: #409cbf !important;
+    color:  #aa763b !important;
     font-size: 20px;
     font-weight: bold;
     font-family: 'Lobster', cursive;
@@ -36,7 +37,13 @@ body{
 }
   
 .navbar li .username{
-    color: #409cbf !important;
+    color: #8be8f5 !important;
+
+}
+
+.navbar .dropdown ul{
+
+    background-color: black !important;
 }
 
 body{
@@ -66,12 +73,13 @@ body{
 
 .index .btn{
     background-color: #1f9fd1 !important;
+    
     border: none;
 
 }
 
 .index .btn:hover{
-    background-color: #8c7873 !important;
+    background-color: #86551d !important;
 
 }
 
@@ -96,7 +104,7 @@ section a{
 }
 
 section .btn{
-    background-color: #8c7873 !important;
+    background-color: #86551d !important;
     border: none;
 }
 
@@ -129,7 +137,12 @@ section .btn:hover{
     align-items: center;
 
 }
+.more-details{
+    background-color: rgb(5, 5, 12);
+    color: white;
 
+
+}
 
 .jumbotron{
     border: 1px solid rgb(245, 204, 204);
@@ -155,8 +168,12 @@ section .btn:hover{
     justify-content: space-between;
 }
 
+
+
 .comments{
     border: 1px solid rgb(245, 204, 204);
+    background-color: rgb(235, 231, 231);
+    font-size: 13px;
 }
 
 .comments .comment-btn{
@@ -200,8 +217,6 @@ section .btn:hover{
 
 .profile .prof-image h6{
     text-align: center;
-    color: #409cbf;
-    font-weight: 800;
 
 }
 
@@ -210,16 +225,15 @@ section .btn:hover{
     text-align: center;
 }
 
-.blogPosts h6{
-    color: #409cbf;
-    font-weight: 800;
+.blogPosts {
+
 }
 
 
 .blogPosts .btn{
     height: 36px;
     border-radius: 5px;
-    background-color: #8c7873 !important;
+    background-color: #86551d !important;
     border: none;
     color: white;
     font-size: 15px;
@@ -233,7 +247,7 @@ section .btn:hover{
 .prof-update-form .submit-btn{
     height: 40px;
     border-radius: 5px;
-    background-color: #409cbf;
+    background-color: #86551d !important;
     border: none;
     color: white;
 }

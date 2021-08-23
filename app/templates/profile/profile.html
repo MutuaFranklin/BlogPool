@@ -22,16 +22,16 @@
 
         {% if user.profile_pic %}
     
-        <img src="{{url_for('static',filename=user.profile_pic)}}"style="border-radius: 5%; height:30rem; width: 30rem;" alt="" class="img-thumbnail">
+        <img src="{{url_for('static',filename=user.profile_pic)}}"style="border-radius: 5%; height:25rem; width: 25rem;" alt="" class="img-thumbnail">
     
         {%else%}
-        <img src="{{url_for('static',filename='images/avartar.jpeg')}}" style="border-radius: 5%; height:100%; width: 100%;"alt="" class="img-thumbnail">  
+        <img src="{{url_for('static',filename='images/avartar.jpeg')}}" style="border-radius: 5%; height:25rem; width: 25rem;" alt="" class="img-thumbnail">  
         {% endif %}
       </div>
-      <div class="user-profile">
-        <h3> {{user.first_name}} {{user.last_name}} </h3>
+      <div class="user-profile mt-3">
+        <h5> {{user.first_name}} {{user.last_name}} </h5>
 
-        <h5> {{user.username| capitalize}} </h5>
+        <h6> {{user.username| capitalize}} </h6>
 
         {% if user.bio %}
           <p> {{user.bio}}</p>

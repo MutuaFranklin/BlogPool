@@ -12,7 +12,7 @@
 {% block content %}
 
   <div class="container-fluid blog-details">
-      <div class="col-md-8">
+      <div class="col-md-8 more-details">
           <div class="jumbotron">
             <div class="image">
               <img src="https://mdbootstrap.com/img/new/standard/nature/023.jpg" style="width: 100%; height: 30rem;" class="img-fluid" />
@@ -25,7 +25,7 @@
               <img src="https://mdbootstrap.com/img/new/standard/nature/023.jpg" class="img-fluid" />
             {% endif %} -->
             </div>
-            <div class="container">
+            <div class="container mt-3">
               <div class="topheader">
                 <h3>{{single_blog.blog_title}}</h3>
                 <p class="text-muted">{{single_blog.blog_category}}</p>
@@ -39,13 +39,13 @@
               </div>
                 
               <div class="row user-details">
-                <div class="username text-muted">Posted by {{single_blog.user.username}} on: {{ single_blog.datetime_posted.strftime('%Y-%m-%d %H:%M')}}</div>
+                <div class="username text-muted mb-3">Posted by {{single_blog.user.username}} on: {{ single_blog.datetime_posted.strftime('%Y-%m-%d %H:%M')}}</div>
               </div>
-              <hr>
 
               
               </div> 
               {%if current_user.id == single_blog.user.id%}
+              <hr>
                 <div class="col-md-12 action-btn">
                     <a href="{{url_for('main.edit_blog' , id = single_blog.blog_id)}}"><button type="button" class="btn btn-success m-3">Update Blog</button></a>
                     <a href="{{url_for('main.delete_blog' , id = single_blog.blog_id)}}"><button type="button" class="btn btn-danger m-3">Delete Blog</button></a>
@@ -55,45 +55,45 @@
             </div>
            
             
-            </div>
-        <div class="col-md-8 commentForm m-3">
-          <!-- <form action="/main.blog_details" method="post">
-            {{commentForm.hidden_tag()}}
+          </div>
+          <div class="col-md-8 commentForm m-3">
+            <!-- <form action="/main.blog_details" method="post">
+              {{commentForm.hidden_tag()}}
 
-            <div>
-                <div class="fw-bold text-capitalize mb-2">
-                    {{ commentForm.blog_comment.label }}
+              <div>
+                  <div class="fw-bold text-capitalize mb-2">
+                      {{ commentForm.blog_comment.label }}
+                  </div>
+                  <div>
+                    {{commentForm.blog_comment(cols="30", rows="5", class_="form-control" )}}
                 </div>
-                <div>
-                  {{commentForm.blog_comment(cols="30", rows="5", class_="form-control" )}}
+                  
               </div>
-                
-            </div>
-            
-            <div class="mt-2">
-              <input class="ghost-button" type="submit" value="Post">
-            </div>
-          </form>              -->
-          {{wtf.quick_form(commentForm)}}
-        </div>
+              
+              <div class="mt-2">
+                <input class="ghost-button" type="submit" value="Post">
+              </div>
+            </form>              -->
+            {{wtf.quick_form(commentForm)}}
+          </div>
 
-        <div class="col-md-8 comments">
-          <button type="button" class="btn btn-primary comment-btn mt-4 m-3">{{single_blog.blog_comments.count() }} Comment(s)</button>
-          <hr>
-          {% for comment in comments  %}
-            <div class="col-md-12 m-3">
-                <p class="text-muted user">{{ comment.user.username}}</p>
-                <p> {{comment.blog_comment}}</p>
-                <p class="time">Commented on  {{comment.datetime_posted.strftime('%Y-%m-%d %H:%M')}}</p>
-                {% if current_user.id == comment.user.id %}
-                <a href="{{url_for('main.delete_comment' , id = comment.id)}}"><span class="edit">Edit</span> or </a> 
-                <a href="{{url_for('main.delete_comment' , id = comment.id)}}"><span class="delete">Delete</span> comment</a>
-                {% endif%}
-            </div>
-          <hr>
-          {% endfor %}
+          <div class="col-md-8 comments">
+            <button type="button" class="btn btn-primary comment-btn mt-4 m-3">{{single_blog.blog_comments.count() }} Comment(s)</button>
+            <hr>
+            {% for comment in comments  %}
+              <div class="col-md-12 m-3">
+                  <p class="text-muted user">{{ comment.user.username}}</p>
+                  <p> {{comment.blog_comment}}</p>
+                  <p class="time">Commented on  {{comment.datetime_posted.strftime('%Y-%m-%d %H:%M')}}</p>
+                  {% if current_user.id == comment.user.id %}
+                  <a href="{{url_for('main.delete_comment' , id = comment.id)}}"><span class="edit">Edit</span> or </a> 
+                  <a href="{{url_for('main.delete_comment' , id = comment.id)}}"><span class="delete">Delete</span> comment</a>
+                  {% endif%}
+              </div>
+            <hr>
+            {% endfor %}
+          </div>
         </div>
-      </div>
 
 </div>
   {% endblock %}

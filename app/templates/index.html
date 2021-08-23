@@ -41,7 +41,7 @@
               </div>
             </div>
             <div class="carousel-item">
-              <img src="https://www.gettyimages.com/gi-resources/images/500px/983794168.jpg" style="height: 40rem;" class="d-block w-100" alt="...">
+              <img src="{{url_for('static',filename='images/drm.jpg')}}" style="height: 40rem;" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5>{{ blog_three.blog_title }}</h5>
                 <p>{{blog_three.blog_content | truncate(100)}}</p>

@@ -21,7 +21,7 @@ class TestBlog(unittest.TestCase):
 
 
     def test_check_instance_variables(self):
-        self.assertEquals(self.new_blog.blog_id,2)
+        self.assertEquals(self.new_blog.blog_id,5)
         self.assertEquals(self.new_blog.blog_title,'The rise and downfall of Sonko')
         self.assertEquals(self.new_blog.blog_category,'Entertainment blog')
         self.assertEquals(self.new_blog.blog_content,'This is how it goes')

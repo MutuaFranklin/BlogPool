@@ -208,12 +208,19 @@ section .btn:hover{
 
 
 .blogPosts .btn{
-    height: 40px;
+    height: 36px;
     border-radius: 5px;
-    background-color: #409cbf;
+    background-color: #8c7873 !important;
     border: none;
     color: white;
+    font-size: 15px;
 }
+
+.blogPosts .btn:hover{
+    background-color: #409cbf !important;
+}
+
+
 .prof-update-form .submit-btn{
     height: 40px;
     border-radius: 5px;

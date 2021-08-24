@@ -117,13 +117,16 @@ def update_pic(uname):
 def blog_submission():
     blog_form = BlogForm()
     sub_form = SubscriberForm()
-    if blog_form.validate_on_submit():
+    if blog_form.validate_on_submit() and 'photo' in request.files:
+        filename = photos.save(request.files['photo'])
+        path=f'photos/{filename}'
         new_blog = Blog(
             blog_title = blog_form.title.data, 
             blog_content = blog_form.blog.data, 
             blog_category = blog_form.blog_category.data, 
-            blog_image = blog_form.blog.data,
+            blog_image = path,
             user=current_user)
+   
     
         new_blog.save_blog()
 
@@ -155,17 +158,32 @@ def edit_blog(id):
     """
     Edit a blogpost
     """
-    blogs = Blog.query.filter_by(blog_id = id).first()
-    if request.method == 'post':
-        blog_title = request.form['blog_title']
-        blog_category = request.form['blog_category']
-        blog_content = request.form['blog_content'] 
-
+    
+    blog_form = BlogForm()
+    blog = Blog.query.get(id)
+    if blog_form.validate_on_submit() and 'photo' in request.files:
+        filename = photos.save(request.files['photo'])
+        path=f'photos/{filename}'
+        blog.title=blog_form.title.data
+        blog.blog_category=blog_form.blog_category.data
+        blog.blog_content=blog_form.blog.data
+        user=current_user
+        blog.blog_image=path
         db.session.commit()
-        return redirect(url_for('main.home'))
+
+        subscribers=Subscriber.query.all()
+
+        for subscriber in subscribers:
+            mail_message("A blog update","email/newPost/newPostAlert", subscriber.subscriber_email,subscriber, user = current_user)
+
+        return redirect (url_for ("main.home"))
+    elif request.method == 'GET':
+        blog_form.title.data = blog.blog_title
+        blog_form.blog_category.data = blog.blog_category
+        blog_form.blog.data = blog.blog_content
         
     title = "Update Post"
-    return render_template('blog_update.html', title = title, blogs=blogs)
+    return render_template('blog_submission.html', title = title, blog_form=blog_form)
 
 
 

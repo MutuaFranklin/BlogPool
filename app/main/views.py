@@ -117,16 +117,6 @@ def update_pic(uname):
 def blog_submission():
     blog_form = BlogForm()
     sub_form = SubscriberForm()
-
-    # if blog_form.validate_on_submit() and 'photo' in request.files:
-        # filename = photos.save(request.files['photo'])
-        # path=f'photos/{filename}'
-        # new_blog = Blog(
-        #     blog_title = blog_form.title.data, 
-        #     blog_content = blog_form.blog.data, 
-        #     blog_category = blog_form.blog_category.data, 
-        #     blog_image = path,
-        #     user=current_user)
     if blog_form.validate_on_submit():
         new_blog = Blog(
             blog_title = blog_form.title.data, 
@@ -137,12 +127,6 @@ def blog_submission():
     
         new_blog.save_blog()
 
-    if 'photo' in request.files:
-        filename = photos.save(request.files['photo'])
-        path = f'photos/{filename}'
-        new_blog.blog_image = path
-        db.session.commit()
-
         subscribers=Subscriber.query.all()
 
         for subscriber in subscribers:
@@ -152,7 +136,7 @@ def blog_submission():
 
     if sub_form.validate_on_submit():
         new_subscriber = Subscriber(
-            subscriber_email = sub_form.subscriber_email.data, 
+            subscriber_email = sub_form.subscriber_email.data
         )
 
         new_subscriber.save_subscriber()
@@ -171,15 +155,17 @@ def edit_blog(id):
     """
     Edit a blogpost
     """
-    blog=Blog.query.get(id)
-    form = BlogForm(formdata=request.form, obj=blog)
-    if request.method == 'POST' and form.validate_on_submit():
-        flash('Post updated successfully!')
-        blog_post = Blog.query.filter_by(blog_id=id).update({"blog_title": form.title.data,"blog_category":form.blog_category.data,"blog_content": form.content.data})
+    blogs = Blog.query.filter_by(blog_id = id).first()
+    if request.method == 'post':
+        blog_title = request.form['blog_title']
+        blog_category = request.form['blog_category']
+        blog_content = request.form['blog_content'] 
+
         db.session.commit()
-        return redirect(url_for('main.home',id = blog.blog_id ))   
+        return redirect(url_for('main.home'))
+        
     title = "Update Post"
-    return render_template('blog_submission.html', title = title, form=form)
+    return render_template('blog_update.html', title = title, blogs=blogs)
 
 
 

@@ -17,8 +17,7 @@
         <h6>Blog submission </h6>
         <div class="container-fluid">
           <div class="col-md-12 mt-4 px-4">
-              {{wtf.quick_form(blog_form)}}
-                <!-- <form action="/blog-submission" method="post" enctype = "multipart/form-data">
+                <form action="/blog-submission" method="post" enctype = "multipart/form-data">
                     {{blog_form.hidden_tag()}}
 
                     <div>
@@ -51,7 +50,7 @@
                           {{ blog_form.blog_image.label }}
                       </div>
                       <div>
-                        {{blog_form.blog_image(size=30, class_="form-control" )}}
+                        {{blog_form.blog_image(size=30, class_="form-control", _name="photo")}}
                       </div>
                   </div>
                     
@@ -59,7 +58,7 @@
                       <input class="submit-btn" type="submit" value="Publish">
                     </div>
                 </form>     
-               -->
+              
               <!-- {{simplemde.load}} -->
 
 

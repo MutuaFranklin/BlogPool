@@ -1,0 +1,64 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% import 'macros.html' as macro %}
+
+
+<!-- Styles block -->   
+{% block styles%}
+  {{ super() }}
+  <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+{% endblock %}
+
+{% block content %}
+
+  <div class="container-fluid blog-submission">
+    <div class="row">
+      <div class="col-md-7 submission">
+        <h6>Blog Update</h6>
+        <div class="container-fluid">
+          <div class="col-md-12 mt-4 px-4">
+                <form action="{{ url_for('main.edit_blog', id = blogs.blog_id) }}" method="post" enctype = "multipart/form-data">
+
+                    <div>
+                        <div class="fw-bold text-capitalize mb-2">
+                        </div>
+                        <div>
+                            {{ request.form['blog_title' ]}}                      
+                        </div>
+                        
+                    </div>
+                    <div class="mt-2">
+                      <div class="fw-bold text-capitalize mb-2">
+                      </div>
+                      <div>
+                        {{ request.form['blog_category'] }}                      
+                    </div>
+                  </div>
+                    <div class="mt-2">
+                        <div class="fw-bold text-capitalize mb-2">
+                        </div>
+                        <div>
+                            {{ request.form['blog_content']}}                        
+                        </div>
+                    </div>
+                   
+                    
+                    <div class="mt-2">
+                      <input class="submit-btn" type="submit" value="Publish">
+                    </div>
+                </form>     
+              
+              <!-- {{simplemde.load}} -->
+
+
+          </div>
+        </div>
+      </div>
+     
+
+    </div>
+  </div>
+  {% endblock %}
+
+
+  

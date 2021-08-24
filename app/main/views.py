@@ -158,7 +158,7 @@ def edit_blog(id):
     """
     Edit a blogpost
     """
-    
+    sub_form = SubscriberForm()
     blog_form = BlogForm()
     blog = Blog.query.get(id)
     if blog_form.validate_on_submit() and 'photo' in request.files:
@@ -174,16 +174,20 @@ def edit_blog(id):
         subscribers=Subscriber.query.all()
 
         for subscriber in subscribers:
-            mail_message("A blog update","email/newPost/newPostAlert", subscriber.subscriber_email,subscriber, user = current_user)
+            mail_message("A blog update","email/updatePost/updatePostAlert", subscriber.subscriber_email, user = current_user)
 
         return redirect (url_for ("main.home"))
+
     elif request.method == 'GET':
         blog_form.title.data = blog.blog_title
         blog_form.blog_category.data = blog.blog_category
         blog_form.blog.data = blog.blog_content
+
+       
+
         
     title = "Update Post"
-    return render_template('blog_submission.html', title = title, blog_form=blog_form)
+    return render_template('blog_submission.html', title = title, blog_form=blog_form, sub_form=sub_form)
 
 
 

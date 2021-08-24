@@ -6,7 +6,7 @@
           <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
             {% if blog.blog_image %}
     
-              <img src="{{url_for('static',filename=blog.blog_image)}}" class="img-fluid">
+              <img src="{{url_for('static',filename=blog.blog_image)}}" style="width: 100%; height: 15rem;" class="img-fluid">
         
             {% else %}
               <img src="https://mdbootstrap.com/img/new/standard/nature/023.jpg" class="img-fluid">

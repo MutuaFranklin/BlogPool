@@ -19,3 +19,37 @@ db.session.commit()
             blog_category = blog_form.blog_category.data, 
             blog_image = blog_form.blog.data,
             user=current_user)
+
+
+         <div class="col-md-3 subscription">
+        <h6>Blog alert Subscription </h6>
+        <div class="col-md-12 mt-4 px-4">
+
+
+          <form action="" method="post">
+            {{sub_form.hidden_tag()}}
+
+            <div>
+                <div class="fw-bold text-capitalize mb-2">
+                    {{ sub_form.subscriber_email.label }}
+                </div>
+                <div>
+                  {{sub_form.subscriber_email(size=30, class_="form-control" )}}
+              </div>
+                
+            </div>
+          
+            
+            <div class="mt-2">
+              <input class="submit-btn" type="submit" value="Subscribe">
+            </div>
+          </form>  
+          
+          {% for message in get_flashed_messages() %}
+          <div class="alert alert-success mt-5">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+          {{ message }}
+          </div>
+          {% endfor %}
+        
+    </div>
